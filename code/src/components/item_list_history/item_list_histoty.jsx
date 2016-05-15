@@ -42,7 +42,7 @@ export class ItemListHistory extends Component {
           ref="textInput"
         />
         <Button triggerHandler={this.handleAdd}>Add</Button>
-        <ItemList items={items.get('list')} />
+        <ItemList items={items.get('current')} />
         <Button triggerHandler={this.handleUndo}>Undo</Button>
         <Button triggerHandler={this.handleRedo}>Redo</Button>
       </div>

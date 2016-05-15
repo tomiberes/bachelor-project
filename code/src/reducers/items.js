@@ -8,8 +8,8 @@ import {
   ITEM_ERROR
 } from '../constants/actions';
 
-export default function history(state = Map({
-  list: List(),
+export default function items(state = Map({
+  current: List(),
   history: List(),
   future: List()
 }), action) {
@@ -17,25 +17,25 @@ export default function history(state = Map({
 
   switch (action.type) {
     case ITEM_ADD: {
-      const newList = state.get('list').push(data);
+      const items = state.get('current').push(data);
       const history = state.get('history');
 
       return state.merge({
-        list: newList,
-        history: history.push(newList)
+        current: items,
+        history: history.push(items)
       });
     }
     case ITEM_REMOVE: {
-      const list = state.get('list');
-      const index = list.indexOf(data);
+      const current = state.get('current');
+      const index = current.indexOf(data);
 
       if (index > -1) {
-        const newList = list.remove(index);
+        const items = current.remove(index);
         const history = state.get('history');
 
         return state.merge({
-          list: newList,
-          history: history.push(newList)
+          current: items,
+          history: history.push(items)
         });
       }
       return state;
@@ -44,13 +44,13 @@ export default function history(state = Map({
       const history = state.get('history');
 
       if (history.size > 0) {
-        const list = state.get('list');
+        const current = state.get('current');
         const future = state.get('future');
 
         return state.merge({
           history: history.pop(),
-          future: future.push(list),
-          list: history.last()
+          future: future.push(current),
+          current: history.last()
         });
       }
       return state;
@@ -59,12 +59,12 @@ export default function history(state = Map({
       const history = state.get('history');
 
       if (history.size > 0) {
-        const list = state.get('list');
+        const current = state.get('current');
         const future = state.get('future');
 
         return state.merge({
-          list: future.last(),
-          history: history.push(list),
+          current: future.last(),
+          history: history.push(current),
           future: future.pop()
         });
       }
