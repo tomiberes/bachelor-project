@@ -1,11 +1,9 @@
 # Bachelor project
 
-### Structure
-  * `code` project source code
-  * `docs` markdown documents for the project
+Source code for bachelor project presentation
 
 ### Development
-  Node.js and npm required, in `code`:
+  Node.js and npm required:
 
   * `npm install` get dependencies
   * `npm run dev` launch development environment, web server and file watcher
@@ -14,7 +12,4 @@
   * `npm run lint` lint
 
 ### TODO:
-  * fix undo/redo history
-  * update dependencies
   * style lint
-  * turn the application into presentation

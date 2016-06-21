@@ -38,10 +38,12 @@
     "postcss-mixins": "^4.0.1",
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^1.2.0",
+    "prismjs": "^1.5.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "redux": "^3.5.2",
     "rollupify": "^0.2.0",
+    "spectacle": "^1.0.7",
     "uglifyify": "^3.0.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"

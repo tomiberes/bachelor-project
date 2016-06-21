@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import ItemListHistory from '../item_list_history/item_list_histoty';
+import Presentation from '../presentation/presentation';
 
 // Application root
 export default class App extends Component {
@@ -11,7 +11,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <ItemListHistory />
+        <Presentation />
       </div>
     );
   }

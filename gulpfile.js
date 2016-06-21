@@ -52,9 +52,7 @@ function scripts(watch) {
   if (watch) {
     watchify(bundler)
       .on('update', bundle)
-      .on('time', time => {
-        logMessage('Build time: ' + time / 1000 + ' s');
-      });
+      .on('time', time => logMessage(`Build time: ${time / 1000} s`));
   } else {
     bundler.transform({
       global: true
@@ -65,8 +63,8 @@ function scripts(watch) {
     logMessage('Building Scripts...');
     return bundler.bundle()
       .on('error', logError)
-      .pipe(source(conf.name + '.js'))
-      .pipe(gulp.dest(conf.dest + 'js'));
+      .pipe(source(`${conf.name}.js`))
+      .pipe(gulp.dest(`${conf.dest}js`));
   }
 
   return bundle();
@@ -79,9 +77,9 @@ function startBrowserSync() {
       middleware: historyApiFallback()
     },
     files: [
-      conf.dest + '*.html',
-      conf.dest + 'js/*.js',
-      conf.dest + 'css/*.css'
+      `${conf.dest}*.html`,
+      `${conf.dest}js/*.js`,
+      `${conf.dest}css/*.css`
     ]
   });
 }
@@ -102,11 +100,11 @@ gulp.task('styles', () => {
     ))
     .pipe(rename('style.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(conf.dest + 'css'));
+    .pipe(gulp.dest(`${conf.dest}css`));
 });
 
 gulp.task('copy', () => {
-  return gulp.src(conf.src.templates + 'index.html')
+  return gulp.src(`${conf.src.templates}index.html`)
     .pipe(gulp.dest(conf.dest));
 });
 
@@ -114,8 +112,8 @@ gulp.task('build', ['scripts', 'styles', 'copy'], () => {});
 
 gulp.task('watch', ['scripts:watch', 'styles', 'copy'], () => {
   startBrowserSync();
-  gulp.watch(conf.src.root + '**/*.css', ['styles']);
-  gulp.watch(conf.src.templates + '**/*.html', ['copy']);
+  gulp.watch(`${conf.src.root}**/*.css`, ['styles']);
+  gulp.watch(`${conf.src.templates}**/*.html`, ['copy']);
 });
 
 gulp.task('default', () => gutil.log('Not defined, use specific tasks.'));

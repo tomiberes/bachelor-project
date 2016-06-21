@@ -1,0 +1,10 @@
+@import "variables.css";
+@import "globals.css";
+@import "mixins.css";
+
+@import "../components/app/app.css";
+@import "../components/button/button.css";
+@import "../components/item_history/item_history.css";
+@import "../components/item_list/item_list.css";
+@import "../components/presentation/presentation.css";
+@import "../components/text_input/text_input.css";

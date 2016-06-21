@@ -1,0 +1,12 @@
+.presentation {
+
+  &__demo {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    .item-history {
+      padding: 10px;
+    }
+  };
+};
