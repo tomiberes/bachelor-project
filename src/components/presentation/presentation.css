@@ -1,12 +1,30 @@
 .presentation {
 
+  ol, ul {
+    list-style-type: square;
+  }
+
   &__demo {
     display: flex;
     align-items: baseline;
     justify-content: center;
 
     .item-history {
-      padding: 10px;
+      height: 500px;
+      overflow-x: scroll;
+      padding: 30px;
     }
-  };
-};
+
+    .text-input {
+
+      input {
+        font-size: 18px;
+        border: none;
+      }
+    }
+
+    .button {
+      font-size: 16px;
+    }
+  }
+}
