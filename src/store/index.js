@@ -30,8 +30,7 @@ export function connectReactComponent(component, fn) {
     }
 
     render() {
-      // TODO: merge with passed props
-      return createElement(component, this.state);
+      return createElement(component, Object.assign(this.state, this.props));
     }
   };
 }

@@ -12,7 +12,7 @@ const {dispatch} = store;
 const storeKey = 'items';
 
 // Proof of concept for undo/redo history
-export class ItemListHistory extends Component {
+export class ItemHistory extends Component {
   constructor(props) {
     super(props);
 
@@ -39,25 +39,25 @@ export class ItemListHistory extends Component {
   }
 
   render() {
-    const {items} = this.props;
+    const {items, initialValue} = this.props;
 
     return (
       <div className="item-history">
         <TextInput
-          label="write some"
-          value="like this"
+          value={initialValue || ''}
           ref="textInput"
         />
         <Button triggerHandler={this.handleAdd}>Add</Button>
         <Button triggerHandler={this.handleRemove}>Remove</Button>
-        <ItemList items={items.get('current')} />
+        <br></br>
         <Button triggerHandler={this.handleUndo}>Undo</Button>
         <Button triggerHandler={this.handleRedo}>Redo</Button>
+        <ItemList items={items.get('current')} />
       </div>
     );
   }
 }
 
-export default connectReactComponent(ItemListHistory, state => {
+export default connectReactComponent(ItemHistory, state => {
   return {[storeKey]: state.get(storeKey)};
 });
