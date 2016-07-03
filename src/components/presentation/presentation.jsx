@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import createTheme from 'spectacle/lib/themes/default';
 import {
-  Appear, BlockQuote, Cite, Code, CodePane, Deck, Fill, Heading, Image, Layout,
-  Link, ListItem, List, Markdown, Quote, Slide, Spectacle, Text
+  Appear, Code, Deck, Heading, ListItem, List, Slide, Spectacle, Text
 } from 'spectacle';
 
 import ItemHistory from '../item_history/item_history';
@@ -71,7 +70,8 @@ export default class Presentation extends Component {
                   <ListItem>
                     First class functions
                     <Text>
-                      Function is treated as data.
+                      Function as first class entity, supports all operations
+                      generally available to other entities.
                     </Text>
                   </ListItem>
                 </Appear>
@@ -134,7 +134,10 @@ export default class Presentation extends Component {
                 <Appear>
                   <ListItem>
                     Persistent data structures
-                    <Text></Text>
+                    <Text>
+                      Data structure that always preserves the previous
+                      version of itself when it is modified
+                    </Text>
                   </ListItem>
                 </Appear>
                 <br></br>
@@ -151,15 +154,12 @@ export default class Presentation extends Component {
                 <Appear>
                   <ListItem>
                     Hash mapped array tries (HAMT)
-                    <Text></Text>
+                    <Text>
+                      Tree data structure allowing structural sharing and is
+                      optimized for retrieval.
+                    </Text>
                   </ListItem>
                 </Appear>
-                {/*<br></br>
-                <Appear>
-                  <ListItem>
-                    <Text></Text>
-                  </ListItem>
-                </Appear>*/}
               </List>
             </Slide>
             <Slide>
@@ -246,23 +246,14 @@ export default class Presentation extends Component {
                 <br></br>
                 <Appear>
                   <ListItem>
-                    Parallerism
+                    Concurent programming
                     <Text>
-                      Independent operations without the need for locking.
+                      Avoiding multithreading locking by using functions without
+                      side effects operating on immutable data.
                     </Text>
                   </ListItem>
                 </Appear>
                 <br></br>
-                <Appear>
-                  <ListItem>
-                    Distributed systems
-                    <Text>
-                      Back to user interfaces, where application with user interactions
-                      and network communication could be considered as a distributed
-                      system operating in volatile envirnoment.
-                    </Text>
-                  </ListItem>
-                </Appear>
               </List>
             </Slide>
             <Slide>
